@@ -1,0 +1,7 @@
+---
+- name: Restart docker-obs
+  community.docker.docker_compose:
+    project_src: "{{ config_dir }}/docker-obs/"
+    build: false
+    restarted: true
+  become: false

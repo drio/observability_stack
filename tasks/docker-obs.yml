@@ -1,0 +1,40 @@
+---
+- name: Gather package facts.
+  ansible.builtin.package_facts:
+    manager: auto
+  when: ansible_facts.userspace_bits == '32'
+
+- name: Synchronize docker-obs directory.
+  ansible.posix.synchronize:
+    src: docker-obs
+    dest: "{{ config_dir }}/"
+    delete: false
+    recursive: true
+    perms: false
+  become: false
+
+# This is an upgrade task from 1.x to 2.x - can be removed for 3.x.
+- name: Ensure docker-obs directory is not a Git repository.
+  ansible.builtin.file:
+    path: "{{ config_dir }}/docker-obs/.git/"
+    state: absent
+  become: false
+
+- name: Copy templated docker-obs files into place.
+  ansible.builtin.template:
+    src: templates/{{ item.src }}
+    dest: "{{ config_dir }}/docker-obs/{{ item.dest }}"
+    mode: 0644
+  loop:
+    - src: grafana-config.monitoring.j2
+      dest: grafana/config.monitoring
+    - src: prometheus.yml.j2
+      dest: prometheus/prometheus.yml
+  notify: Restart docker-obs
+  become: false
+
+- name: Ensure docker-obs environment is running.
+  community.docker.docker_compose:
+    project_src: "{{ config_dir }}/docker-obs/"
+    build: false
+  become: false

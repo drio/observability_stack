@@ -1,0 +1,7 @@
+---
+# Location where configuration files will be stored.
+config_dir: '~'
+
+# docker-obs configuration.
+monitoring_enable: true
+monitoring_grafana_admin_password: "admin"

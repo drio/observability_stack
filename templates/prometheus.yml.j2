@@ -1,0 +1,20 @@
+---
+global:
+  scrape_interval: 15s
+  # How frequently to evaluate alert rules.
+  evaluation_interval: 15s
+  # How long until a scrape request times out.
+  scrape_timeout: 10s
+  # The labels to add to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+    monitor: 'Alertmanager'
+
+rule_files:
+  - 'alert.rules'
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090']
