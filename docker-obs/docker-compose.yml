@@ -52,10 +52,17 @@ services:
   kafka:
     image: wurstmeister/kafka
     container_name: kafka
+    depends_on:
+      - zookeeper
     ports:
       - "9092:9092"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./kafka:/kafka_vol
     environment:
       KAFKA_ADVERTISED_HOST_NAME: localhost
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181 
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_OPTS: -javaagent:/kafka_vol/jmx_prometheus_javaagent-0.17.0.jar=7071:/kafka_vol/prom-jmx-agent-config.yml
+
     networks:
       - grafana-prometheus
