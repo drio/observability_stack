@@ -45,3 +45,10 @@
       tags:
         - dockerprune
         - never
+
+    - name: Full update of the OS
+      ansible.builtin.import_tasks: tasks/full-update.yml
+      tags:
+        - fullupdate
+        - never
+

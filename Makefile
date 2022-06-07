@@ -14,14 +14,8 @@ ansible/play:
 ansible/requirements:
 	ansible-galaxy collection install -r requirements.yml
 
-docker/info:
-	ansible-playbook main.yml --tags "dockerps"
-
-docker/stop:
-	ansible-playbook main.yml --tags "dockerstop"
-
-docker/prune:
-	ansible-playbook main.yml --tags "dockerprune"
+tag/%:
+	ansible-playbook main.yml --tags "$*"
 
 ssh:
 	ssh ubuntu@grafana.drtufts.com
