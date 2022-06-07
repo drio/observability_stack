@@ -1,0 +1,12 @@
+---
+- name: Run docker ps.
+  ansible.builtin.command: docker ps
+  register: docker_ps
+
+- debug: var=docker_ps.stdout_lines
+
+- name: Run image list.
+  ansible.builtin.command: docker image ls
+  register: docker_ls
+
+- debug: var=docker_ls.stdout_lines

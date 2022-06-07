@@ -27,8 +27,8 @@
       ansible.builtin.import_tasks: tasks/docker-obs.yml
       when: monitoring_enable
 
-    - name: Docker ps
-      ansible.builtin.import_tasks: tasks/docker-ps.yml
+    - name: Docker info
+      ansible.builtin.import_tasks: tasks/docker-info.yml
       tags: 
         - info
         - dockerps
@@ -38,4 +38,10 @@
       ansible.builtin.import_tasks: tasks/docker-stop.yml
       tags:
         - dockerstop
+        - never
+
+    - name: Prune all docker images
+      ansible.builtin.import_tasks: tasks/docker-prune.yml
+      tags:
+        - dockerprune
         - never
