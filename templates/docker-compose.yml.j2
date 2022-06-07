@@ -41,6 +41,15 @@ services:
     networks:
       - grafana-prometheus
 
+  flask-app:
+    container_name: "flask-app"
+    restart: always
+    build:
+      context: ./flask-app
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+
 {% if kafka_enable %}
   zookeeper:
     image: wurstmeister/zookeeper
