@@ -1,4 +1,5 @@
 HOST?=
+USER?=ubuntu
 
 hello:
 	@echo "Welcome to the observability stack"
@@ -20,11 +21,11 @@ tag/%:
 	ansible-playbook main.yml --tags "$*"
 
 ssh:
-	ssh ubuntu@${HOST}
+	ssh ubuntu@${USER}
 
 ssh/forward:
 	ssh \
 		-L3030:localhost:3030 \
 		-L9090:localhost:9090 \
 		-L9091:localhost:9091 \
-		ubuntu@${HOST}
+		${USER}@${HOST}
