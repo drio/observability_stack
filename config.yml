@@ -5,4 +5,4 @@ config_dir: '~'
 # docker-obs configuration.
 monitoring_enable: true
 monitoring_grafana_admin_password: "change.me.please"
-kafka_enable: false # run kafka + zk containers
+kafka_enable: true # run kafka + zk containers
