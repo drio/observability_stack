@@ -1,3 +1,5 @@
+HOST?=
+
 hello:
 	@echo "Welcome to the observability stack"
 	@echo "Usage:"
@@ -18,11 +20,11 @@ tag/%:
 	ansible-playbook main.yml --tags "$*"
 
 ssh:
-	ssh ubuntu@grafana.drtufts.com
+	ssh ubuntu@${HOST}
 
 ssh/forward:
 	ssh \
 		-L3030:localhost:3030 \
 		-L9090:localhost:9090 \
 		-L9091:localhost:9091 \
-		ubuntu@grafana.drtufts.com
+		ubuntu@${HOST}
