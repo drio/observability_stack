@@ -26,3 +26,16 @@
     - name: Set up the observability stack (prometheus/grafana)
       ansible.builtin.import_tasks: tasks/docker-obs.yml
       when: monitoring_enable
+
+    - name: Docker ps
+      ansible.builtin.import_tasks: tasks/docker-ps.yml
+      tags: 
+        - info
+        - dockerps
+        - never
+
+    - name: Docker stop
+      ansible.builtin.import_tasks: tasks/docker-stop.yml
+      tags:
+        - dockerstop
+        - never

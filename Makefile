@@ -13,6 +13,12 @@ play:
 requirements:
 	ansible-galaxy collection install -r requirements.yml
 
+docker/ps:
+	ansible-playbook main.yml --tags "dockerps"
+
+docker/stop:
+	ansible-playbook main.yml --tags "dockerstop"
+
 ssh-forward:
 	ssh -L3030:localhost:3030 -L9090:localhost:9090 ubuntu@grafana.drtufts.com
 

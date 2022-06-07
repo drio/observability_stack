@@ -5,3 +5,10 @@
     build: false
     restarted: true
   become: false
+
+- name: Stop containers
+  community.docker.docker_compose:
+    project_src: "{{ config_dir }}/docker-obs/"
+    build: false
+    restarted: true
+  become: false

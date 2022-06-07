@@ -30,6 +30,8 @@
       dest: grafana/config.monitoring
     - src: prometheus.yml.j2
       dest: prometheus/prometheus.yml
+    - src: docker-compose.yml.j2
+      dest: docker-compose.yml
   notify: Restart docker-obs
   become: false
 
@@ -38,3 +40,5 @@
     project_src: "{{ config_dir }}/docker-obs/"
     build: false
   become: false
+
+

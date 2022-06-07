@@ -1,0 +1,6 @@
+---
+- name: Run docker ps.
+  ansible.builtin.command: docker ps
+  register: docker_ps
+
+- debug: var=docker_ps.stdout_lines

@@ -41,6 +41,7 @@ services:
     networks:
       - grafana-prometheus
 
+{% if kafka_enable %}
   zookeeper:
     image: wurstmeister/zookeeper
     container_name: zookeeper
@@ -63,6 +64,6 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_OPTS: -javaagent:/kafka_vol/jmx_prometheus_javaagent-0.17.0.jar=7071:/kafka_vol/prom-jmx-agent-config.yml
-
     networks:
       - grafana-prometheus
+{% endif %}
