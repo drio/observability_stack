@@ -23,6 +23,6 @@ ssh:
 ssh/forward:
 	ssh \
 		-L3030:localhost:3030 \
-		-L5001:localhost:5000 \
 		-L9090:localhost:9090 \
+		-L9091:localhost:9091 \
 		ubuntu@grafana.drtufts.com
