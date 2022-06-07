@@ -41,7 +41,6 @@ services:
     networks:
       - grafana-prometheus
 
-{% if flaskapp_enable %}
   flask-app:
     container_name: "flask-app"
     restart: always
@@ -50,10 +49,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - 9091:9091
-{% endif %}
 
 
-{% if kafka_enable %}
   zookeeper:
     image: wurstmeister/zookeeper
     container_name: zookeeper
@@ -78,4 +75,3 @@ services:
       KAFKA_OPTS: -javaagent:/kafka_vol/jmx_prometheus_javaagent-0.17.0.jar=7071:/kafka_vol/prom-jmx-agent-config.yml
     networks:
       - grafana-prometheus
-{% endif %}
