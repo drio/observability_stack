@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Flask App drio</title>
+    <title>Welcome to a great Flask app</title>
+    <style>
+.log {
+    font-size: 2rem;
+    padding: 10px;
+}
+    </style>
+
 </head>
 <body>
-    <h1>Great App</h1>
+    <h3>Great App</h3>
+    <button id="button">Push me 🍎</button>
+    <div id="log" class="log"/>
 </body>
 </html>
+<script>
+
+window.onload = function() {
+    const button = document.getElementById('button');
+    const log = document.getElementById('log');
+
+    function fetchData() {
+        fetch('/data', {
+          headers: { 'Content-Type': 'application/json', },
+        })
+        .then(response => response.json())
+        .then(data => log.innerHTML = data.number)
+        .catch((error) => console.error('Error:', error));
+    }
+
+    button.addEventListener('click', fetchData, false);
+}
+
+</script>
