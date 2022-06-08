@@ -3,7 +3,8 @@ USER?=ubuntu
 INVENTORY?="--inventory-file=./inventory.ini.tufts"
 
 hello:
-	@echo "Welcome to the observability stack"
+	@echo "🚀 Welcome to the observability stack"
+	@echo ""
 	@echo "Usage:"
 	@echo "  1. Make sure ansible is installed in your system."
 	@echo "  2. Update config.yml and inventory.ini to your liking."
