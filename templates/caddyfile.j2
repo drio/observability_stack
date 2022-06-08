@@ -8,3 +8,27 @@ os.drtufts.com, drtufts.com {
   root * /caddy-main-site
   file_server
 }
+
+grafana.drtufts.com {
+  log
+  encode zstd gzip
+  reverse_proxy * grafana:3000
+}
+
+prometheus.drtufts.com {
+  log
+  encode zstd gzip
+  reverse_proxy * prometheus:9090
+  basicauth /* {
+    drio JDJhJDE0JEwuYS5kQ09ENjMxM3g1b3Vvc3hqYnV3aVJSdzUzOWpMRm0vMVNFMXFMbHk1dWdVQWIxSHAy
+  }
+}
+
+flaskapp.drtufts.com {
+  log
+  encode zstd gzip
+  reverse_proxy * flask-app:9091
+  basicauth /* {
+    drio JDJhJDE0JE9rdndTVFNkbVgvNTdZZVhaZFRIV2V0NDAzZzhGTWg4L0V5UVFkVTBVVzlVYnI2aWFiOXN5
+  }
+}

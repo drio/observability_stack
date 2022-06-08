@@ -11,24 +11,51 @@
 
 	body {
 		font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color
-		text-rendering: optimizeLegibility;
 	}
 
 	.title {
-		font-size: 1.5rem;
+		font-size: 1.8rem;
 		padding: 10px;
+    text-align: center;
 	}
 
 	.st-img {
-		width: 500px;
+		width: 70%;
 	}
 
 	.center {
 		height: 100%;
 		display: grid;
 		place-items: center;
+    border: solid 0px red;
 	}
-	
+
+  .list {
+    border: solid 0px red;
+    width: 80%;
+    padding: 1.2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a {
+    text-decoration: none;
+    padding-right: 1.2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+  }
+
+  a:hover {
+    color: steelblue;
+  }
+
+  .ob {
+    font-size: 1.8rem;
+    color: rgb(197,150,56);
+  }       
 		</style>
 
     <link rel="stylesheet" href="/main.css" />
@@ -37,8 +64,14 @@
 
   <body>
 	<main class="center">
-		<div class="title"> Welcome to the observability stack </div>
+        <div class="title"> Welcome to the <strong class="ob">observability</strong> stack </div>
 		<img src="st-dashboard.jpg" class="st-img"/>
+    <div class="list">
+      <a href="https://grafana.drtufts.com">Grafana</a> 
+      <a href="https://prometheus.drtufts.com">Prometheus</a> 
+      <a href="https://flaskapp.drtufts.com">Flask App</a> 
+    </div>
+    </div>
 	</main>
 
    <script src="/main.js"></script>

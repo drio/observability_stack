@@ -36,3 +36,6 @@ ssh/forward:
 		-L9090:localhost:9090 \
 		-L9091:localhost:9091 \
 		${USER}@${HOST}
+
+http-server:
+	http-server docker-obs/caddy/main-site/
