@@ -1,0 +1,10 @@
+{
+  email {{ caddy_email }}
+}
+
+os.drtufts.com, drtufts.com {
+  log
+  encode zstd gzip
+  root * /caddy-main-site
+  file_server
+}

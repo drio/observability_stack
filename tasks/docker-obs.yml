@@ -30,6 +30,8 @@
       dest: grafana/config.monitoring
     - src: prometheus.yml.j2
       dest: prometheus/prometheus.yml
+    - src: caddyfile.j2
+      dest: caddy/config/Caddyfile
   notify: Restart docker-obs
   become: false
 

@@ -9,6 +9,19 @@ networks:
   grafana-prometheus:
 
 services:
+  caddy:
+    image: caddy:2.5.1
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./caddy/config/Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy/data:/caddy-data
+      - ./caddy/main-site:/caddy-main-site
+    networks:
+      - grafana-prometheus
+
   prometheus:
     image: prom/prometheus:v2.36.0
     restart: always

@@ -1,5 +1,6 @@
 HOST?=
 USER?=ubuntu
+INVENTORY?="--inventory-file=./inventory.ini.tufts"
 
 hello:
 	@echo "Welcome to the observability stack"
@@ -10,18 +11,23 @@ hello:
 	@echo "  3. Install the ansible requeriments with: make requirements"
 	@echo "  4. make ansible/play"
 	@echo ""
+	@echo "Useful cmds: "
+	@echo "  $$ make  tag/dockerstop tag/dockerprune ansible/play tag/info"
+	@echo "  $$ USER=ubuntu HOST=box.foo.bar make ssh"
+	@echo "  $$ make tag/fullupdate"
+
 
 ansible/play:
-	ansible-playbook main.yml 
+	ansible-playbook ${INVENTORY} main.yml 
 
 ansible/requirements:
 	ansible-galaxy collection install -r requirements.yml
 
 tag/%:
-	ansible-playbook main.yml --tags "$*"
+	ansible-playbook ${INVENTORY} main.yml --tags "$*"
 
 ssh:
-	ssh ubuntu@${USER}
+	ssh ${USER}@${HOST}
 
 ssh/forward:
 	ssh \
