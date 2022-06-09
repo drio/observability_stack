@@ -19,16 +19,12 @@ prometheus.drtufts.com {
   log
   encode zstd gzip
   reverse_proxy * prometheus:9090
-  basicauth /* {
-    drio JDJhJDE0JEwuYS5kQ09ENjMxM3g1b3Vvc3hqYnV3aVJSdzUzOWpMRm0vMVNFMXFMbHk1dWdVQWIxSHAy
-  }
+  {{caddy_prometheus_auth_section}}
 }
 
 flaskapp.drtufts.com {
   log
   encode zstd gzip
   reverse_proxy * flask-app:9091
-  basicauth /* {
-    drio JDJhJDE0JE9rdndTVFNkbVgvNTdZZVhaZFRIV2V0NDAzZzhGTWg4L0V5UVFkVTBVVzlVYnI2aWFiOXN5
-  }
+  {{caddy_flaskapp_auth_section}}
 }
