@@ -35,7 +35,10 @@ ssh/forward:
 		-L3030:localhost:3030 \
 		-L9090:localhost:9090 \
 		-L9091:localhost:9091 \
+		-L9092:localhost:9092 \
 		${USER}@${HOST}
 
 http-server:
 	http-server docker-obs/caddy/main-site/
+
+full-rebuild: tag/dockerstop tag/dockerprune ansible/play tag/info
