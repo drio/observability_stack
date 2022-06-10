@@ -32,6 +32,9 @@
       dest: prometheus/prometheus.yml
     - src: caddyfile.j2
       dest: caddy/config/Caddyfile
+    - src: docker-compose.yml.j2
+      dest: docker-compose.yml
+
   notify: Restart docker-obs
   become: false
 

@@ -1,0 +1,186 @@
+region: us-east-1
+metrics:
+- aws_dimensions:
+  - InstanceId
+  aws_metric_name: CPUUtilization
+  aws_namespace: AWS/EC2
+  aws_statistics:
+  - Average
+  aws_tag_select:
+    resource_type_selection: ec2:instance
+    resource_id_dimension: InstanceId
+- aws_dimensions:
+  - InstanceId
+  aws_metric_name: NetworkIn
+  aws_namespace: AWS/EC2
+  aws_statistics:
+  - Average
+- aws_dimensions:
+  - InstanceId
+  aws_metric_name: NetworkOut
+  aws_namespace: AWS/EC2
+  aws_statistics:
+  - Average
+- aws_dimensions:
+  - InstanceId
+  aws_metric_name: NetworkPacketsIn
+  aws_namespace: AWS/EC2
+  aws_statistics:
+  - Average
+- aws_dimensions:
+  - InstanceId
+  aws_metric_name: NetworkPacketsOut
+  aws_namespace: AWS/EC2
+  aws_statistics:
+  - Average
+- aws_dimensions:
+  - InstanceId
+  aws_metric_name: DiskWriteBytes
+  aws_namespace: AWS/EC2
+  aws_statistics:
+  - Average
+- aws_dimensions:
+  - InstanceId
+  aws_metric_name: DiskReadBytes
+  aws_namespace: AWS/EC2
+  aws_statistics:
+  - Average
+- aws_dimensions:
+  - InstanceId
+  aws_metric_name: CPUCreditBalance
+  aws_namespace: AWS/EC2
+  aws_statistics:
+  - Average
+- aws_dimensions:
+  - InstanceId
+  aws_metric_name: CPUCreditUsage
+  aws_namespace: AWS/EC2
+  aws_statistics:
+  - Average
+- aws_dimensions:
+  - InstanceId
+  aws_metric_name: StatusCheckFailed
+  aws_namespace: AWS/EC2
+  aws_statistics:
+  - Sum
+- aws_dimensions:
+  - InstanceId
+  aws_metric_name: StatusCheckFailed_Instance
+  aws_namespace: AWS/EC2
+  aws_statistics:
+  - Sum
+- aws_dimensions:
+  - InstanceId
+  aws_metric_name: StatusCheckFailed_System
+  aws_namespace: AWS/EC2
+  aws_statistics:
+  - Sum
+
+# API gateway
+- aws_dimensions:
+  - Stage
+  - ApiName
+  aws_metric_name: Count
+  aws_namespace: AWS/ApiGateway
+  aws_statistics:
+  - SampleCount
+- aws_dimensions:
+  - Stage
+  - ApiName
+  aws_metric_name: Latency
+  aws_namespace: AWS/ApiGateway
+  aws_statistics:
+  - Average
+- aws_dimensions:
+  - Stage
+  - ApiName
+  aws_metric_name: IntegrationLatency
+  aws_namespace: AWS/ApiGateway
+  aws_statistics:
+  - Average
+- aws_dimensions:
+  - Stage
+  - ApiName
+  aws_metric_name: 4XXError
+  aws_namespace: AWS/ApiGateway
+  aws_statistics:
+  - Sum
+- aws_dimensions:
+  - Stage
+  - ApiName
+  aws_metric_name: 5XXError
+  aws_namespace: AWS/ApiGateway
+  aws_statistics:
+  - Sum
+- aws_dimensions:
+  - Stage
+  - ApiName
+  aws_metric_name: CacheHitCount
+  aws_namespace: AWS/ApiGateway
+  aws_statistics:
+  - Sum
+- aws_dimensions:
+  - Stage
+  - ApiName
+  aws_metric_name: CacheMissCount
+  aws_namespace: AWS/ApiGateway
+  aws_statistics:
+  - Sum
+
+# Lambda
+- aws_dimensions:
+  - FunctionName
+  - Resource
+  aws_metric_name: Invocations
+  aws_namespace: AWS/Lambda
+  aws_statistics:
+  - Sum
+- aws_dimensions:
+  - FunctionName
+  - Resource
+  aws_metric_name: Errors
+  aws_namespace: AWS/Lambda
+  aws_statistics:
+  - Sum
+- aws_dimensions:
+  - FunctionName
+  - Resource
+  aws_metric_name: Duration
+  aws_namespace: AWS/Lambda
+  aws_statistics:
+  - Average
+- aws_dimensions:
+  - FunctionName
+  - Resource
+  aws_metric_name: Duration
+  aws_namespace: AWS/Lambda
+  aws_statistics:
+  - Maximum
+- aws_dimensions:
+  - FunctionName
+  - Resource
+  aws_metric_name: Duration
+  aws_namespace: AWS/Lambda
+  aws_statistics:
+  - Minimum
+- aws_dimensions:
+  - FunctionName
+  - Resource
+  aws_metric_name: Throttles
+  aws_namespace: AWS/Lambda
+  aws_statistics:
+  - Sum
+- aws_dimensions:
+  - FunctionName
+  - Resource
+  aws_metric_name: ConcurrentExecutions
+  aws_namespace: AWS/Lambda
+  aws_statistics:
+  - Sum
+- aws_dimensions:
+  - FunctionName
+  - Resource
+  aws_metric_name: UnreservedConcurrentExecutions
+  aws_namespace: AWS/Lambda
+  aws_statistics:
+  - Sum
