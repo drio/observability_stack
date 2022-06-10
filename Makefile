@@ -42,3 +42,6 @@ http-server:
 	http-server docker-obs/caddy/main-site/
 
 full-rebuild: tag/dockerstop tag/dockerprune ansible/play tag/info
+
+create-instance:
+	./aws-create-instance.yml
