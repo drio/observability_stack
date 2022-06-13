@@ -98,6 +98,7 @@ services:
       - zookeeper
     ports:
       - "9092:9092"
+      - "7071:7071"
     volumes:
       - grafana_data:/var/lib/grafana
       - ./kafka:/kafka_vol
