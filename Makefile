@@ -1,6 +1,7 @@
 HOST?=
 USER?=ubuntu
 INVENTORY?="--inventory-file=./inventory.ini.tufts"
+INSTANCE_NAME?=change_me
 
 hello:
 	@echo "🚀 Welcome to the observability stack"
@@ -44,4 +45,6 @@ http-server:
 full-rebuild: tag/dockerstop tag/dockerprune ansible/play tag/info
 
 create-instance:
-	./aws-create-instance.yml
+	@[ ${INSTANCE_NAME} == "change_me" ] && \
+		echo "INSTANCE_NAME not provided" || \
+		ansible-playbook ./aws-create-instance.yml -e instance_name=${INSTANCE_NAME}
