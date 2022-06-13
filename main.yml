@@ -1,5 +1,5 @@
 ---
-- hosts: obs-machine
+- hosts: "{{ host_to_use }}"
   become: true
 
   pre_tasks:

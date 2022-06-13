@@ -20,7 +20,7 @@ hello:
 
 
 ansible/play:
-	ansible-playbook ${INVENTORY} main.yml 
+	ansible-playbook ${INVENTORY} main.yml
 
 ansible/requirements:
 	ansible-galaxy collection install -r requirements.yml
