@@ -26,8 +26,10 @@ services:
     image: prom/prometheus:v2.36.0
     restart: always
     volumes:
+      # Configuration file (host - container)
       - ./prometheus/:/etc/prometheus/
-      - prometheus_data:/prometheus
+      # Data (host - container)
+      - /data/prometheus:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -61,7 +63,10 @@ services:
     image: grafana/grafana
     restart: always
     volumes:
-      - grafana_data:/var/lib/grafana
+      # This is the data volume
+      - /data/grafana:/var/lib/grafana
+      # When you start grafana for the first time it will pull dashboards and
+      # data sources from there
       - ./grafana/provisioning/:/etc/grafana/provisioning/
     depends_on:
       - prometheus
