@@ -22,15 +22,20 @@
   tasks:
     - name: Create data dirs for prometheus and grafana
       file:
-        path: "/data/{{ item }}"
+        path: /data/prometheus
         state: directory
         # nobody
         owner: 65534
         group: 65534
         mode: 0775
-      loop:
-        - grafana
-        - prometheus
+
+    - name: Create data dirs for grafana
+      file:
+        path: /data/grafana
+        state: directory
+        owner: 472
+        group: 472
+        mode: 0775
 
     - name: Setup Docker.
       ansible.builtin.import_tasks: tasks/docker.yml
