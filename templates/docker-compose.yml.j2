@@ -37,6 +37,7 @@ services:
       - '--storage.tsdb.retention.time=180d'
       - '--web.console.libraries=/usr/share/prometheus/console_libraries'
       - '--web.console.templates=/usr/share/prometheus/consoles'
+      - '--web.enable-admin-api'
     ports:
       - 9090:9090
     networks:
@@ -135,6 +136,9 @@ services:
     build:
       context: ./prombackup
       dockerfile: Dockerfile
+    volumes:
+      # (host - container)
+      - /data/prometheus:/data/prometheus
     ports:
       - {{ prombackup_listen_port }}:{{ prombackup_listen_port }}
     environment:
@@ -142,5 +146,3 @@ services:
       AWS_SECRET_ACCESS_KEY: {{ aws_secret_access_key }}
     networks:
       - grafana-prometheus
-
-
