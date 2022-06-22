@@ -34,3 +34,7 @@ scrape_configs:
   - job_name: 'cloudwatch'
     static_configs:
       - targets: ["cloudwatch-exporter:9106"]
+
+  - job_name: 'prombackup'
+    static_configs:
+      - targets: ["prombackup-server:8888"]
