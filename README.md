@@ -1,6 +1,11 @@
 ## The observability stack
 
-This is an ansible playbook to create an observability stack in a linux box. The services are:
+![](images/st-dashboard.jpg)
+
+This is an ansible playbook to create and maintain an observability stack in a linux box.
+
+The services are:
+
  - prometheus
  - grafana
  - cloudwatch exporter: get cloudwatch metrics and create a prometheus exporter.
@@ -10,4 +15,3 @@ This is an ansible playbook to create an observability stack in a linux box. The
  - flask-app: example flask app instrumented with the prometheus library.
  - kafka/zookeeper: just for testing.
 
-![](images/st-dashboard.jpg)
