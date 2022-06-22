@@ -1,11 +1,11 @@
 - [x] Add prometheus backup
   - [ ] Either are cron to trigger snapshot or modify prombackup to run periodically
-- [] Backup dashboard
-  - [] Add prom backup metric
-  - [] Add prom metric alerts
-- [] Have another prometheus instance that uses the backup
-- [] Write lag exporter
-- [] Create dashboard
-- [] Add lag exporter metric
-- [] Add users 
-- [] email group
+- [ ] kafka lag
+  - [ ] Write lag exporter
+  - [ ] Create dashboard
+- [ ] Backup grafana data directory
+- [ ] Add prom backup metric
+- [ ] Add prom metric alerts
+- [ ] Have another prometheus instance that uses the backup
+- [ ] Add users 
+- [ ] email group
