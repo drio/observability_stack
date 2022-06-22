@@ -37,6 +37,13 @@
         group: 472
         mode: 0775
 
+    - name: Pull prombackup repo locally
+      git:
+        repo: "{{ prombackup_repo }}"
+        dest: "{{ prombackup_repo_local_destination }}"
+        accept_hostkey: "{{ prombackup_repo_accept_hostkey }}"
+      become: false
+
     - name: Setup Docker.
       ansible.builtin.import_tasks: tasks/docker.yml
 

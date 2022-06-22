@@ -7,3 +7,15 @@ monitoring_enable: true
 monitoring_grafana_admin_password: "change.me.please"
 
 caddy_email: foo@bar.com
+
+prombackup_repo: https://github.com/drio/prombackup
+prombackup_repo_local_destination: ./docker-obs/prombackup/prombackup-repo
+prombackup_repo_accept_hostkey: true
+
+prombackup_listen_port: 8888
+prombackup_s3_bucket_name: drio-prom-timeseries-snap
+prombackup_s3_bucket_region: us-east-1
+prombackup_prometheus_server: http://prometheus:9090
+prombackup_snapdir: /data/prometheus/snapshots
+prombackup_tarball_name: obstack-prom-snapshot.tar.gz
+prombackup_zero_seconds: 60

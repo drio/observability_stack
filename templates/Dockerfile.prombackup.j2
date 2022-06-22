@@ -1,0 +1,13 @@
+FROM golang:1.18.3
+ADD ./prombackup-repo /prombackup-repo
+WORKDIR /prombackup-repo
+RUN go build cmd/*.go
+ENTRYPOINT [ "./prombackup-server" ]
+#USER nobody
+CMD [ "--listenPort={{ prombackup_listen_port }}",    \
+      "--s3bucket={{ prombackup_s3_bucket_name }}",   \
+      "--s3region={{ prombackup_s3_bucket_region }}", \
+      "--server={{ prombackup_prometheus_server }}",  \
+      "--snapdir={{ prombackup_snapdir }}",           \
+      "--tarballName={{ prombackup_tarball_name }}",  \
+      "--zeroSeconds={{ prombackup_zero_seconds }}" ]

@@ -23,7 +23,7 @@ services:
       - grafana-prometheus
 
   prometheus:
-    image: prom/prometheus:v2.36.0
+    image: prom/prometheus:v2.36.2
     restart: always
     volumes:
       # Configuration file (host - container)
@@ -128,3 +128,19 @@ services:
       - 9106:9106
     networks:
       - grafana-prometheus
+
+  prombackup-server:
+    container_name: "prombackup-server"
+    restart: always
+    build:
+      context: ./prombackup
+      dockerfile: Dockerfile
+    ports:
+      - {{ prombackup_listen_port }}:{{ prombackup_listen_port }}
+    environment:
+      AWS_ACCESS_KEY_ID: {{ aws_access_key_id }}
+      AWS_SECRET_ACCESS_KEY: {{ aws_secret_access_key }}
+    networks:
+      - grafana-prometheus
+
+
