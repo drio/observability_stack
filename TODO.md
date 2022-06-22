@@ -1,5 +1,5 @@
 - [x] Add prometheus backup
-  - [ ] Either are cron to trigger snapshot or modify prombackup to run periodically
+- [x] cron to trigger snapshots
 - [ ] kafka lag
   - [ ] Write lag exporter
   - [ ] Create dashboard
