@@ -58,6 +58,10 @@
         hour: "3"
         job: "/usr/bin/curl -s localhost:8888/snap > /dev/null"
 
+    - name: set timezone to Asia/Tokyo
+      timezone:
+        name: America/New_York
+
     - name: Docker info
       ansible.builtin.import_tasks: tasks/docker-info.yml
       tags: 

@@ -45,5 +45,3 @@
     project_src: "{{ config_dir }}/docker-obs/"
     build: false
   become: false
-
-
