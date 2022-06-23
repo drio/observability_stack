@@ -1,0 +1,11 @@
+---
+- name: Every night trigger a snapshot
+  ansible.builtin.cron:
+    name: "Trigger prometheus snapshot"
+    minute: "0"
+    hour: "3"
+    job: "/usr/bin/curl -s localhost:8888/snap > /dev/null"
+
+- name: set timezone
+  timezone:
+    name: America/New_York

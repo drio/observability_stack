@@ -3,6 +3,7 @@
   ansible.builtin.package_facts:
     manager: auto
   when: ansible_facts.userspace_bits == '32'
+  tags: [ "always" ]
 
 - name: Synchronize docker-obs directory.
   ansible.posix.synchronize:
@@ -36,7 +37,6 @@
       dest: docker-compose.yml
     - src: Dockerfile.prombackup.j2
       dest: prombackup/Dockerfile
-
   notify: Restart docker-obs
   become: false
 
