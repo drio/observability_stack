@@ -1,8 +1,8 @@
 - [x] Add prometheus backup
 - [x] cron to trigger snapshots
 - [x] add scrapper for the promebackup
-- [ ] add counter metric to track prometheus TS backup
-- [ ] Add ansible task to set timezone
+- [x] add counter metric to track prometheus TS backup
+- [x] Add ansible task to set timezone
 - [ ] Add prom backup dashboard
   - [ ] Size of the last snapshot
   - [ ] Progress of the snapshots
