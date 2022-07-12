@@ -47,6 +47,15 @@
       become: false
       tags: [ "always" ]
 
+    - name: Pull ksak repo locally
+      git:
+        repo: "{{ ksak_repo }}"
+        dest: "{{ ksak_repo_local_destination }}"
+        accept_hostkey: "{{ ksak_repo_accept_hostkey }}"
+        version: "{{ ksak_version }}"
+      become: false
+      tags: [ "always" ]
+
     - name: Setup Docker.
       ansible.builtin.import_tasks: tasks/docker.yml
 
