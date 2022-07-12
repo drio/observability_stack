@@ -37,6 +37,8 @@
       dest: docker-compose.yml
     - src: Dockerfile.prombackup.j2
       dest: prombackup/Dockerfile
+    - src: Dockerfile.kask.j2
+      dest: ksak/Dockerfile
   notify: Restart docker-obs
   become: false
 

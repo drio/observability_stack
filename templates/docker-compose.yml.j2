@@ -146,3 +146,18 @@ services:
       AWS_SECRET_ACCESS_KEY: {{ aws_secret_access_key }}
     networks:
       - grafana-prometheus
+
+  ksak:
+    container_name: "ksak"
+    restart: always
+    build:
+      context: ./ksak
+      dockerfile: Dockerfile
+    ports:
+      - {{ kask_listen_port }}:{{ ksak_listen_port }}
+    environment:
+      KSAK_URL: {{ ksak_url }}
+      KSAK_USERNAME: {{ ksak_username }}
+      KSAK_PASSWORD: {{ ksak_password }}
+    networks:
+      - grafana-prometheus
