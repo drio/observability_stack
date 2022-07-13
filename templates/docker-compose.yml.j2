@@ -157,3 +157,12 @@ services:
       - {{ ksak_listen_port }}:{{ ksak_listen_port }}
     networks:
       - grafana-prometheus
+
+  test-cp:
+    container_name: "test-cp"
+    restart: always
+    build:
+      context: ./ksak
+      dockerfile: Dockerfile
+    networks:
+      - grafana-prometheus

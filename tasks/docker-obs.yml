@@ -39,6 +39,8 @@
       dest: prombackup/Dockerfile
     - src: run_ksak.sh.j2
       dest: ksak/run_ksak.sh
+    - src: run_test_cp.sh.j2
+      dest: test-cp/run_test_cp.sh
   notify: Restart docker-obs
   become: false
 

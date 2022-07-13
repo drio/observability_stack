@@ -82,6 +82,9 @@
       ansible.builtin.import_tasks: tasks/full-update.yml
       tags: [ "fullupdate", "never" ]
 
+    # Use these tasks via tags to restart services.
+    # Ideal when developing
+    #
     - name: Update the prombackup service
       ansible.builtin.import_tasks: tasks/prombackup.yml
       tags: [ "updateprombackup", "never" ]
@@ -90,4 +93,14 @@
     - name: Update the ksak service
       ansible.builtin.import_tasks: tasks/ksak.yml
       tags: [ "updateksak", "never" ]
+      become: false
+
+    - name: Update the test-cp service
+      ansible.builtin.import_tasks: tasks/test-cp.yml
+      tags: [ "updatetestcp", "never" ]
+      become: false
+
+    - name: Update the kafka service
+      ansible.builtin.import_tasks: tasks/kafka.yml
+      tags: [ "updatetekafka", "never" ]
       become: false

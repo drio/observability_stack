@@ -1,0 +1,19 @@
+#!/bin/bash
+
+export KSAK_URL='{{ ksak_url }}'
+export KSAK_USERNAME='{{ ksak_username }}' 
+export KSAK_PASSWORD='{{ ksak_password }}'
+
+for i in 1 2 3 4 5
+do
+  TOPIC="drio-topic$i"
+  GRP="drio-topic$i-gid-$i"
+
+  echo "$TOPIC $GRP ..."
+  /ksak/ksak-repo/ksak ./ksak produce \
+    --topic="$TOPIC" &> /dev/null &
+
+  /ksak/ksak-repo/ksak ./ksak consume \
+    --topic="$TOPIC" \
+    --group-id="$GRP" &> /dev/null &
+done
