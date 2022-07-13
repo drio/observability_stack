@@ -1,7 +1,0 @@
-FROM golang:1.18.3
-ADD ./kask-repo /kask-repo
-ADD ./list_topic_groups.csv /input.csv
-WORKDIR /kask-repo
-RUN go build cmd/*.go
-ENTRYPOINT [ "./kask" ]
-CMD [ "exporter", "--input=/input.csv" ]

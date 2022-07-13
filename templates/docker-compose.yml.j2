@@ -154,10 +154,6 @@ services:
       context: ./ksak
       dockerfile: Dockerfile
     ports:
-      - {{ kask_listen_port }}:{{ ksak_listen_port }}
-    environment:
-      KSAK_URL: {{ ksak_url }}
-      KSAK_USERNAME: {{ ksak_username }}
-      KSAK_PASSWORD: {{ ksak_password }}
+      - {{ ksak_listen_port }}:{{ ksak_listen_port }}
     networks:
       - grafana-prometheus

@@ -24,4 +24,7 @@ ksak_listen_port: 9001
 ksak_repo: https://github.com/drio/ksak
 ksak_repo_local_destination: ./docker-obs/ksak/ksak-repo
 ksak_repo_accept_hostkey: true
-ksak_version: v0.0.4
+ksak_version: master
+ksak_url: 'localhost:9094'
+ksak_username: ''
+ksak_password: ''

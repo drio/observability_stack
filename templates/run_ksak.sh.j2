@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export KSAK_URL='{{ ksak_url }}'
+export KSAK_USERNAME='{{ ksak_username }}' 
+export KSAK_PASSWORD='{{ ksak_password }}'
+/ksak/ksak-repo/ksak exporter --input=/ksak/list_topic_groups.csv

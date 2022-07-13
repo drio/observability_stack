@@ -52,7 +52,6 @@
         repo: "{{ ksak_repo }}"
         dest: "{{ ksak_repo_local_destination }}"
         accept_hostkey: "{{ ksak_repo_accept_hostkey }}"
-        version: "{{ ksak_version }}"
       become: false
       tags: [ "always" ]
 
@@ -62,6 +61,7 @@
     - name: Set up the observability stack (prometheus/grafana)
       ansible.builtin.import_tasks: tasks/docker-obs.yml
       when: monitoring_enable
+      tags: [ "sync-docker-obs" ]
 
     - name: Few setup tasks for the machine
       ansible.builtin.import_tasks: tasks/machine.yml
@@ -82,7 +82,12 @@
       ansible.builtin.import_tasks: tasks/full-update.yml
       tags: [ "fullupdate", "never" ]
 
-    - name: Update the prombackup server
+    - name: Update the prombackup service
       ansible.builtin.import_tasks: tasks/prombackup.yml
       tags: [ "updateprombackup", "never" ]
+      become: false
+
+    - name: Update the ksak service
+      ansible.builtin.import_tasks: tasks/ksak.yml
+      tags: [ "updateksak", "never" ]
       become: false
