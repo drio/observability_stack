@@ -47,5 +47,5 @@
 - name: Ensure docker-obs environment is running.
   community.docker.docker_compose:
     project_src: "{{ config_dir }}/docker-obs/"
-    build: false
+    build: true
   become: false

@@ -147,6 +147,8 @@ services:
     networks:
       - grafana-prometheus
 
+  # This connects to a kafka server and pulls the lag for the
+  # topics/groupid pairs we are interested on (configuration)
   ksak:
     container_name: "ksak"
     restart: always
@@ -158,11 +160,13 @@ services:
     networks:
       - grafana-prometheus
 
+  # This connects to the same kafka server as ksak and produces and
+  # consumes (see the dockerfile starting script)
   test-cp:
     container_name: "test-cp"
     restart: always
     build:
-      context: ./ksak
+      context: ./test-cp
       dockerfile: Dockerfile
     networks:
       - grafana-prometheus

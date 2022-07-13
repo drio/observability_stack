@@ -55,6 +55,14 @@
       become: false
       tags: [ "always" ]
 
+    - name: Pull ksak repo locally (for test-cp)
+      git:
+        repo: "{{ ksak_repo }}"
+        dest: ./docker-obs/test-cp/ksak-repo
+        accept_hostkey: true
+      become: false
+      tags: [ "always" ]
+
     - name: Setup Docker.
       ansible.builtin.import_tasks: tasks/docker.yml
 
@@ -102,5 +110,5 @@
 
     - name: Update the kafka service
       ansible.builtin.import_tasks: tasks/kafka.yml
-      tags: [ "updatetekafka", "never" ]
+      tags: [ "updatekafka", "never" ]
       become: false

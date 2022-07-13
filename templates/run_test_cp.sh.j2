@@ -10,10 +10,11 @@ do
   GRP="drio-topic$i-gid-$i"
 
   echo "$TOPIC $GRP ..."
-  /ksak/ksak-repo/ksak ./ksak produce \
-    --topic="$TOPIC" &> /dev/null &
+  /ksak/ksak-repo/ksak produce --topic="$TOPIC" &> /dev/null &
 
-  /ksak/ksak-repo/ksak ./ksak consume \
-    --topic="$TOPIC" \
-    --group-id="$GRP" &> /dev/null &
+  /ksak/ksak-repo/ksak consume \
+    --topic="$TOPIC" --group-id="$GRP" &> /dev/null &
 done
+
+# sleep to infinity
+tail -f /dev/null
