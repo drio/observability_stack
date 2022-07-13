@@ -112,3 +112,8 @@
       ansible.builtin.import_tasks: tasks/kafka.yml
       tags: [ "updatekafka", "never" ]
       become: false
+
+    - name: Update the prometheus service
+      ansible.builtin.import_tasks: tasks/prometheus.yml
+      tags: [ "updateprometheus", "never" ]
+      become: false

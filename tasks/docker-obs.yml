@@ -44,7 +44,7 @@
   notify: Restart docker-obs
   become: false
 
-- name: Ensure docker-obs environment is running.
+- name: Start the different services in docker-obs (rebuild if necessary)
   community.docker.docker_compose:
     project_src: "{{ config_dir }}/docker-obs/"
     build: true
