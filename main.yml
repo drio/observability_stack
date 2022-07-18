@@ -90,6 +90,11 @@
       ansible.builtin.import_tasks: tasks/full-update.yml
       tags: [ "fullupdate", "never" ]
 
+    - name: Grafana related tasks
+      ansible.builtin.import_tasks: tasks/grafana.yml
+      tags: [ "grafana" ]
+      become: false
+
     # Use these tasks via tags to restart services.
     # Ideal when developing
     #
