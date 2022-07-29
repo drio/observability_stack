@@ -19,7 +19,7 @@ hello:
 	@echo "  $$ make tag/fullupdate"
 
 
-ansible/play:
+play:
 	ansible-playbook ${INVENTORY} main.yml
 
 ansible/requirements:
@@ -37,12 +37,13 @@ ssh/forward:
 		-L9090:localhost:9090 \
 		-L9091:localhost:9091 \
 		-L9092:localhost:9092 \
+		-L9200:localhost:9200 \
 		${USER}@${HOST}
 
 http-server:
 	http-server docker-obs/caddy/main-site/
 
-full-rebuild: tag/dockerstop tag/dockerprune ansible/play tag/info
+full-rebuild: tag/dockerstop tag/dockerprune play tag/info
 
 create-instance:
 	@[ ${INSTANCE_NAME} == "change_me" ] && \

@@ -42,3 +42,8 @@ scrape_configs:
   - job_name: 'ksak'
     static_configs:
       - targets: ["ksak:{{ ksak_listen_port }}"]
+
+  - job_name: 'cadvisor'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ["cadvisor:8080"]
