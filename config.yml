@@ -28,3 +28,5 @@ ksak_version: master
 ksak_url: 'localhost:9092'
 ksak_username: ''
 ksak_password: ''
+
+tls_jmx_proxy_repo: https://github.com/drio/go-tls-proxy

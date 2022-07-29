@@ -63,6 +63,14 @@
       become: false
       tags: [ "always" ]
 
+    - name: Pull proxy repo locally
+      git:
+        repo: "{{ tls_jmx_proxy_repo }}"
+        dest: ./docker-obs/tls-jmx-proxy/proxy-repo
+        accept_hostkey: true
+      become: false
+      tags: [ "always" ]
+
     - name: Setup Docker.
       ansible.builtin.import_tasks: tasks/docker.yml
 

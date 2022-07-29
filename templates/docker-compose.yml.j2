@@ -10,6 +10,7 @@ networks:
 
 services:
   caddy:
+    container_name: "caddy"
     image: caddy:2.5.1
     restart: unless-stopped
     ports:
@@ -23,6 +24,7 @@ services:
       - grafana-prometheus
 
   prometheus:
+    container_name: "prometheus"
     image: prom/prometheus:v2.36.2
     restart: always
     volumes:
@@ -62,6 +64,7 @@ services:
       - grafana-prometheus
 
   grafana:
+    container_name: "grafana"
     image: grafana/grafana
     restart: always
     volumes:
@@ -113,6 +116,18 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_OPTS: -javaagent:/kafka_vol/jmx_prometheus_javaagent-0.17.0.jar=7071:/kafka_vol/prom-jmx-agent-config.yml
+    networks:
+      - grafana-prometheus
+
+  # TLS Proxy to kafka jmx
+  tls-jmx-proxy:
+    container_name: "tls-jmx-proxy"
+    restart: always
+    build:
+      context: ./tls-jmx-proxy
+      dockerfile: Dockerfile
+    ports:
+      - "7072:7072"
     networks:
       - grafana-prometheus
 

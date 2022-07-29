@@ -1,3 +1,6 @@
 *.tufts
 Session.vim
 tasks/grafana.yml
+docker-obs/tls-jmx-proxy/certs
+docker-obs/tls-jmx-proxy/*.key
+docker-obs/tls-jmx-proxy/*.crt
