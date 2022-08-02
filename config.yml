@@ -30,3 +30,9 @@ ksak_username: ''
 ksak_password: ''
 
 tls_jmx_proxy_repo: https://github.com/drio/go-tls-proxy
+
+am_smtp_smarthost: smtp-mail.xxxx.com:587
+am_smtp_from: xxxx@outlook.com
+am_smtp_auth_username: xxx@outlook.com
+am_smtp_auth_password: pass
+am_drio_email: email_here

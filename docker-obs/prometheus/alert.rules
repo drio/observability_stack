@@ -2,5 +2,5 @@ groups:
  - name: example
    rules:
    - alert: InstanceDown
-     expr: up == 0
-     for: 10s
+     expr: up == 0 > 1
+     for: 5s

@@ -41,6 +41,8 @@
       dest: ksak/run_ksak.sh
     - src: run_test_cp.sh.j2
       dest: test-cp/run_test_cp.sh
+    - src: alertmanager.yml.j2
+      dest: alertmanager/alertmanager.yml
   notify: Restart docker-obs
   become: false
 
