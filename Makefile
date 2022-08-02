@@ -37,6 +37,7 @@ ssh/forward:
 		-L9090:localhost:9090 \
 		-L9091:localhost:9091 \
 		-L9092:localhost:9092 \
+		-L9093:localhost:9093 \
 		-L9200:localhost:9200 \
 		${USER}@${HOST}
 

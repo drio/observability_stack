@@ -22,7 +22,7 @@
       ansible.builtin.import_tasks: tasks/handlers.yml
 
   tasks:
-    - name: Create data dirs for prometheus and grafana
+    - name: Create data dirs for prometheus
       file:
         path: /data/prometheus
         state: directory
@@ -37,6 +37,15 @@
         state: directory
         owner: 472
         group: 472
+        mode: 0775
+
+    - name: Create data dirs for alertmanager
+      file:
+        path: /data/alertmanager
+        state: directory
+        # nobody
+        owner: 65534
+        group: 65534
         mode: 0775
 
     - name: Pull prombackup repo locally
