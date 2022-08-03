@@ -20,13 +20,14 @@ hello:
 
 play:
 	ansible-playbook ${INVENTORY} main.yml || notify "Failure" Funk
-	notify "done"
+	notify "done make play"
 
 ansible/requirements:
 	ansible-galaxy collection install -r requirements.yml
 
 tag/%:
 	ansible-playbook ${INVENTORY} main.yml --tags "$*"
+	notify "done with make tag/$*"
 
 ssh:
 	ssh ${USER}@${HOST}
