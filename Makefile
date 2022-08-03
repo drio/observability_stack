@@ -19,14 +19,14 @@ hello:
 	@echo "  $$ make tag/fullupdate"
 
 play:
-	ansible-playbook ${INVENTORY} main.yml || notify "Failure" Funk
+	ansible-playbook ${INVENTORY} main.yml || notify "Failure: make play" Funk
 	notify "done make play"
 
 ansible/requirements:
 	ansible-galaxy collection install -r requirements.yml
 
 tag/%:
-	ansible-playbook ${INVENTORY} main.yml --tags "$*"
+	ansible-playbook ${INVENTORY} main.yml --tags "$*" || notify "Failure: make tag/$*" Funk
 	notify "done with make tag/$*"
 
 ssh:

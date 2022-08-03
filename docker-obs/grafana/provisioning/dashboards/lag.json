@@ -24,7 +24,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 4,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -167,7 +166,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.5",
       "targets": [
         {
           "datasource": {
@@ -232,7 +231,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.5",
       "targets": [
         {
           "datasource": {
@@ -247,6 +246,7 @@
       "type": "stat"
     }
   ],
+  "refresh": "10s",
   "schemaVersion": 36,
   "style": "dark",
   "tags": [],
@@ -254,13 +254,13 @@
     "list": []
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "AWS Kafka cluster",
   "uid": "oWLtLFRVz",
-  "version": 5,
+  "version": 11,
   "weekStart": ""
 }
