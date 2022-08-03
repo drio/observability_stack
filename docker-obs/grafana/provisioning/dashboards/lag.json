@@ -109,7 +109,7 @@
             "uid": "P1809F7CD0C75ACF3"
           },
           "editorMode": "code",
-          "expr": "avg(avg by(groupid)(ksak_kafka_lag))",
+          "expr": "avg(avg by(groupid)(kafka_lag_exporter))",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -175,7 +175,7 @@
             "uid": "P1809F7CD0C75ACF3"
           },
           "editorMode": "code",
-          "expr": "avg(avg by(groupid)(ksak_kafka_lag))",
+          "expr": "avg(avg by(groupid)(kafka_lag_exporter))",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -239,7 +239,7 @@
             "type": "prometheus",
             "uid": "P1809F7CD0C75ACF3"
           },
-          "expr": "count(ksak_kafka_lag)",
+          "expr": "count(kafka_lag_exporter)",
           "refId": "A"
         }
       ],
