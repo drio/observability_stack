@@ -162,16 +162,15 @@ services:
     networks:
       - grafana-prometheus
 
-  # This connects to a kafka server and pulls the lag for the
-  # topics/groupid pairs we are interested on (configuration)
-  ksak:
-    container_name: "ksak"
+  # Exposes kafka lags via prometheus metrics
+  kafka-lag:
+    container_name: "kafka-lag"
     restart: always
     build:
-      context: ./ksak
+      context: ./kafka-lag
       dockerfile: Dockerfile
     ports:
-      - {{ ksak_listen_port }}:{{ ksak_listen_port }}
+      - {{ kafka_lag_listen_port }}:{{ kafka_lag_listen_port }}
     networks:
       - grafana-prometheus
 

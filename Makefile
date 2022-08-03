@@ -18,9 +18,9 @@ hello:
 	@echo "  $$ USER=ubuntu HOST=box.foo.bar make ssh"
 	@echo "  $$ make tag/fullupdate"
 
-
 play:
 	ansible-playbook ${INVENTORY} main.yml
+	notify "done"
 
 ansible/requirements:
 	ansible-galaxy collection install -r requirements.yml

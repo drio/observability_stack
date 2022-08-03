@@ -1,0 +1,6 @@
+#!/bin/sh
+
+b="go-kafka-lags-prom-exporter.linux.amd64"
+port={{ kafka_lag_listen_port }}
+seconds={{ kafka_lag_seconds }}
+./$b -port $port -seconds $seconds -cmd "./get_lag.sh"

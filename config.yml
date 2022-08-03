@@ -20,14 +20,9 @@ prombackup_snapdir: /data/prometheus/snapshots
 prombackup_tarball_name: obstack-prom-snapshot.tar.gz
 prombackup_zero_seconds: 60
 
-ksak_listen_port: 9001
+kafka_lag_listen_port: 9898
+
 ksak_repo: https://github.com/drio/ksak
-ksak_repo_local_destination: ./docker-obs/ksak/ksak-repo
-ksak_repo_accept_hostkey: true
-ksak_version: master
-ksak_url: 'localhost:9092'
-ksak_username: ''
-ksak_password: ''
 
 tls_jmx_proxy_repo: https://github.com/drio/go-tls-proxy
 

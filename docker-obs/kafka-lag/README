@@ -1,0 +1,5 @@
+
+- run.sh comes from the ansible templates
+
+TODO:
+- Pull the binary within ansible

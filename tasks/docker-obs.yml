@@ -37,12 +37,14 @@
       dest: docker-compose.yml
     - src: Dockerfile.prombackup.j2
       dest: prombackup/Dockerfile
-    - src: run_ksak.sh.j2
-      dest: ksak/run_ksak.sh
     - src: run_test_cp.sh.j2
       dest: test-cp/run_test_cp.sh
     - src: alertmanager.yml.j2
       dest: alertmanager/alertmanager.yml
+    - src: run_kafka_lag.sh.j2
+      dest: kafka-lag/run.sh
+    - src: kafka_lag_clientssl.j2
+      dest: kafka-lag/client-ssl
   notify: Restart docker-obs
   become: false
 

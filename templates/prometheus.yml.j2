@@ -45,9 +45,9 @@ scrape_configs:
     static_configs:
       - targets: ["prombackup-server:8888"]
 
-  - job_name: 'ksak'
+  - job_name: 'kafka-lag'
     static_configs:
-      - targets: ["ksak:{{ ksak_listen_port }}"]
+      - targets: ["kafka-lag:{{ kafka_lag_listen_port }}"]
 
   - job_name: 'cadvisor'
     scrape_interval: 5s

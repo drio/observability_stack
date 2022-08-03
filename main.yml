@@ -56,14 +56,6 @@
       become: false
       tags: [ "always" ]
 
-    - name: Pull ksak repo locally
-      git:
-        repo: "{{ ksak_repo }}"
-        dest: "{{ ksak_repo_local_destination }}"
-        accept_hostkey: "{{ ksak_repo_accept_hostkey }}"
-      become: false
-      tags: [ "always" ]
-
     - name: Pull ksak repo locally (for test-cp)
       git:
         repo: "{{ ksak_repo }}"
@@ -118,11 +110,6 @@
     - name: Update the prombackup service
       ansible.builtin.import_tasks: tasks/prombackup.yml
       tags: [ "updateprombackup", "never" ]
-      become: false
-
-    - name: Update the ksak service
-      ansible.builtin.import_tasks: tasks/ksak.yml
-      tags: [ "updateksak", "never" ]
       become: false
 
     - name: Update the test-cp service
