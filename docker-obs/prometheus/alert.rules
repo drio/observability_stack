@@ -4,3 +4,9 @@ groups:
    - alert: Docker container down
      expr: up == 0 > 1
      for: 5s
+
+ - name: example
+   rules:
+   - alert: Observability stack machine low on disk
+     expr: node_filesystem_free_bytes{device="/dev/root"} / 1000000000 < 8
+     for: 5s
