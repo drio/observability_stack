@@ -1,6 +1,6 @@
 groups:
  - name: example
    rules:
-   - alert: InstanceDown
+   - alert: Docker container down
      expr: up == 0 > 1
      for: 5s

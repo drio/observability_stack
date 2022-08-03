@@ -25,7 +25,7 @@
   ansible.builtin.template:
     src: templates/{{ item.src }}
     dest: "{{ config_dir }}/docker-obs/{{ item.dest }}"
-    mode: 0644
+    mode: 0755
   loop:
     - src: grafana-config.monitoring.j2
       dest: grafana/config.monitoring
@@ -45,6 +45,8 @@
       dest: kafka-lag/run.sh
     - src: kafka_lag_clientssl.j2
       dest: kafka-lag/client-ssl
+    - src: kafka_get_lag.sh.j2
+      dest: kafka-lag/get_lag.sh
   notify: Restart docker-obs
   become: false
 

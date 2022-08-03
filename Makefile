@@ -19,7 +19,7 @@ hello:
 	@echo "  $$ make tag/fullupdate"
 
 play:
-	ansible-playbook ${INVENTORY} main.yml
+	ansible-playbook ${INVENTORY} main.yml || notify "Failure" Funk
 	notify "done"
 
 ansible/requirements:
